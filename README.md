@@ -18,8 +18,7 @@ map, and continuum weights all comprise a set of images.
 
 A set of ALFALFA FITS files (spectral, spectral weights, continuum, and
 continuum weights) can be found
-[here](https://bitbucket.org/brkent/alfalfademo/src/master/) or via
-[FTP](ftp://ftp.cv.nrao.edu/NRAO-staff/bkent/alfalfa/).
+[here](https://bitbucket.org/brkent/alfalfademo/src/master/).
 
 The brief tutorial below can be downloaded as a [Jupyter
 notebook](https://bitbucket.org/brkent/alfalfademo/src/master/ALFALFA.ipynb?viewer=nbviewer).
@@ -68,7 +67,7 @@ the weighting map: :
     ax2.imshow(weights[0,406,:,:], origin='lower')
     plt.show()
 
-![Channel map and weights.](channel.png){.align-center}
+![Channel map and weights.](channel.png)
 
 ## Continuum Map
 
@@ -84,7 +83,7 @@ Show a polarization averaged continuum map: :
     ax2.imshow((contweights[0,:,:]+contweights[1,:,:])/2.0, origin='lower')
     plt.show()
 
-![Continuum map and weights.](continuum.png){.align-center}
+![Continuum map and weights.](continuum.png)
 
 ## Spectrum
 
@@ -107,4 +106,4 @@ Show a spectrum and weights: :
     plt.show()
 
 ![Spectrum and weights. This is a simple sum over a box around an HI
-detection - ignore the y-axis numbers\...](spectrum.png){.align-center}
+detection - ignore the y-axis numbers\...](spectrum.png)
