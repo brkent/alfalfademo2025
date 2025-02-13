@@ -1,28 +1,34 @@
-*****
-ALFALFA Demo
-*****
+\*\***\* ALFALFA Demo**\*\*\*
 
-Demo of the `ALFALFA survey <http://egg.astro.cornell.edu/alfalfa/index.php>`_, data cubes, and Jupyter notebooks
+Demo of the [ALFALFA
+survey](http://egg.astro.cornell.edu/alfalfa/index.php), data cubes, and
+Jupyter notebooks
 
-ALFALFA Data Cubes
-######################
+# ALFALFA Data Cubes
 
-Creating the Data Cubes
-***********************
+## Creating the Data Cubes
 
-Using a bit of Python code (`view here <https://bitbucket.org/brkent/alfalfademo/src/master/processcube_dualpol.py>`_), we can read the IDL structure into a NumPy record array
-and then use AstroPy to create the set of four FITS files.  The data cube (144 x 144 x 1024 x 2) metadata, and continuum metadata (144 x 144 x 2)
-is in each primary FITS header.  The spectral data cubes, spectralweights, continuum map, and continuum weights all comprise a set of images.
+Using a bit of Python code ([view
+here](https://bitbucket.org/brkent/alfalfademo/src/master/processcube_dualpol.py)),
+we can read the IDL structure into a NumPy record array and then use
+AstroPy to create the set of four FITS files. The data cube (144 x 144 x
+1024 x 2) metadata, and continuum metadata (144 x 144 x 2) is in each
+primary FITS header. The spectral data cubes, spectralweights, continuum
+map, and continuum weights all comprise a set of images.
 
-A set of ALFALFA FITS files (spectral, spectral weights, continuum, and continuum weights) can be found `here <https://bitbucket.org/brkent/alfalfademo/src/master/>`_.
+A set of ALFALFA FITS files (spectral, spectral weights, continuum, and
+continuum weights) can be found
+[here](https://bitbucket.org/brkent/alfalfademo/src/master/) or via
+[FTP](ftp://ftp.cv.nrao.edu/NRAO-staff/bkent/alfalfa/).
 
-The brief tutorial below can be downloaded as a `Jupyter notebook <https://bitbucket.org/brkent/alfalfademo/src/master/ALFALFA.ipynb?viewer=nbviewer>`_.
+The brief tutorial below can be downloaded as a [Jupyter
+notebook](https://bitbucket.org/brkent/alfalfademo/src/master/ALFALFA.ipynb?viewer=nbviewer).
 
-Metadata information
-********************
+## Metadata information
 
-We can access the ALFALFA data cube via the following code.  This is NOT exhaustive - you could use AplPy to have the coordinates shown, etc.  All we are doing here is accessing the data...
-::
+We can access the ALFALFA data cube via the following code. This is NOT
+exhaustive - you could use AplPy to have the coordinates shown, etc. All
+we are doing here is accessing the data\... :
 
     from astropy.io import fits
     spectralfitsfile = '1220+09a_spectral.fits'
@@ -31,18 +37,16 @@ We can access the ALFALFA data cube via the following code.  This is NOT exhaust
     continuumweightsfitsfile = '1220+09a_continuumweights.fits'
     fits.info(spectralfitsfile)
 
-This gives us:
-::
+This gives us: :
 
     #------------------------------------------------------------------------------
     #No.    Name             Ver    Type      Cards   Dimensions            Format
     #  0  PRIMARY              1 PrimaryHDU     102   (144, 144, 1024, 2)   float32   
 
-Data and Header information
-***************************
+## Data and Header information
 
-We can get the cube, cube weights, continuum map, continuum weights, and associated headers:
-::
+We can get the cube, cube weights, continuum map, continuum weights, and
+associated headers: :
 
     from astropy.io.fits import getdata
     datacube, spectral_hdr = getdata(spectralfitsfile, 0, header=True)
@@ -50,11 +54,10 @@ We can get the cube, cube weights, continuum map, continuum weights, and associa
     cont, continuum_hdr = getdata(continuumfitsfile, 0, header=True)
     contweights, contweights_hdr = getdata(continuumweightsfitsfile, 0, header=True)
 
-Channel Map
-*************
+## Channel Map
 
-Show a particular channel and polarization with matplotlib, along with the weighting map:
-::
+Show a particular channel and polarization with matplotlib, along with
+the weighting map: :
 
     from matplotlib import pyplot as plt
     fig = plt.figure(figsize=(8,8))
@@ -65,19 +68,14 @@ Show a particular channel and polarization with matplotlib, along with the weigh
     ax2.imshow(weights[0,406,:,:], origin='lower')
     plt.show()
 
-.. figure:: channel.png
-    :align: center
-    
-    Channel map and weights.
+![Channel map and weights.](channel.png){.align-center}
 
-Continuum Map
-*************
+## Continuum Map
 
-Show a polarization averaged continuum map:
-::
+Show a polarization averaged continuum map: :
 
     import numpy as np
-    
+
     fig = plt.figure(figsize=(8,8))
     ax1 = fig.add_subplot(1,2,1)
     ax1.imshow((cont[0,:,:]+cont[1,:,:])/2.0, origin='lower')
@@ -86,16 +84,11 @@ Show a polarization averaged continuum map:
     ax2.imshow((contweights[0,:,:]+contweights[1,:,:])/2.0, origin='lower')
     plt.show()
 
-.. figure:: continuum.png
-    :align: center
-    
-    Continuum map and weights.
+![Continuum map and weights.](continuum.png){.align-center}
 
-Spectrum
-********
-    
-Show a spectrum and weights:
-::
+## Spectrum
+
+Show a spectrum and weights: :
 
     fig, axs = plt.subplots(2)
     fig.suptitle('HI Spectrum and weights')
@@ -113,7 +106,5 @@ Show a spectrum and weights:
 
     plt.show()
 
-.. figure:: spectrum.png
-    :align: center
-    
-    Spectrum and weights.  This is a simple sum over a box around an HI detection - ignore the y-axis numbers...
+![Spectrum and weights. This is a simple sum over a box around an HI
+detection - ignore the y-axis numbers\...](spectrum.png){.align-center}
