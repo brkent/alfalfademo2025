@@ -8,11 +8,9 @@ Jupyter notebooks
 
 ## Creating the Data Cubes
 
-Using a bit of Python code ([view
-here](https://github.com/brkent/alfalfademo2025/blob/main/processcube_dualpol.py)),
-we can read the IDL structure into a NumPy record array and then use
-AstroPy to create the set of four FITS files. The data cube (144 x 144 x
-1024 x 2) metadata, and continuum metadata (144 x 144 x 2) is in each
+We can read the original ALFALFA IDL structures have been read into a NumPy record array.  Then using
+AstroPy we create the set of four FITS files. The data cube (144 x 144 x
+1024 x 2) metadata, and continuum metadata (144 x 144 x 2) are in each
 primary FITS header. The spectral data cubes, spectralweights, continuum
 map, and continuum weights all comprise a set of images.
 
