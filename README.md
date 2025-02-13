@@ -1,4 +1,4 @@
-\*\***\* ALFALFA Demo**\*\*\*
+# ALFALFA Demo
 
 Demo of the [ALFALFA
 survey](http://egg.astro.cornell.edu/alfalfa/index.php), data cubes, and
