@@ -14,7 +14,7 @@ Using a bit of Python code (`view here <https://bitbucket.org/brkent/alfalfademo
 and then use AstroPy to create the set of four FITS files.  The data cube (144 x 144 x 1024 x 2) metadata, and continuum metadata (144 x 144 x 2)
 is in each primary FITS header.  The spectral data cubes, spectralweights, continuum map, and continuum weights all comprise a set of images.
 
-A set of ALFALFA FITS files (spectral, spectral weights, continuum, and continuum weights) can be found `here <https://bitbucket.org/brkent/alfalfademo/src/master/>`_ or via `FTP <ftp://ftp.cv.nrao.edu/NRAO-staff/bkent/alfalfa/>`_.
+A set of ALFALFA FITS files (spectral, spectral weights, continuum, and continuum weights) can be found `here <https://bitbucket.org/brkent/alfalfademo/src/master/>`_.
 
 The brief tutorial below can be downloaded as a `Jupyter notebook <https://bitbucket.org/brkent/alfalfademo/src/master/ALFALFA.ipynb?viewer=nbviewer>`_.
 
